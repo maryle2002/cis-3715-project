@@ -1,4 +1,6 @@
 import { useRef } from "react";
+import clearCanvas from "../utils/clearCanvas";
+import React from "react";
 
 const Sketchpad = ({ canvasRef, id, width, height }) => {
   const lineWidth = 5;
@@ -20,6 +22,7 @@ const Sketchpad = ({ canvasRef, id, width, height }) => {
       ctx.lineWidth = size;
       ctx.lineJoin = "round";
       ctx.lineCap = "round";
+      ctx.beginPath();
       ctx.moveTo(lastX, lastY);
       ctx.lineTo(x, y);
       ctx.closePath();
@@ -77,6 +80,10 @@ const Sketchpad = ({ canvasRef, id, width, height }) => {
       }
     }
   }
+
+  React.useEffect(() => {
+    clearCanvas(canvasRef);
+  });
 
   return (
     <canvas
