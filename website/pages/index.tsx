@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import { Container, Heading } from "@chakra-ui/react";
+import UserInput from "../components/UserInput";
 
 const Home: NextPage = () => {
   return (
@@ -12,6 +13,7 @@ const Home: NextPage = () => {
 
       <Container>
         <Heading>Digit Recognizer</Heading>
+        <UserInput />
       </Container>
     </>
   );
