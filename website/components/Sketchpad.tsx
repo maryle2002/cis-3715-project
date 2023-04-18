@@ -1,9 +1,8 @@
-import { useRef } from "react";
 import clearCanvas from "../utils/clearCanvas";
 import React from "react";
 
 const Sketchpad = ({ canvasRef, id, width, height }) => {
-  const lineWidth = 5;
+  const lineWidth = 20;
 
   let lastX = 0;
   let lastY = 0;
@@ -18,7 +17,7 @@ const Sketchpad = ({ canvasRef, id, width, height }) => {
 
   function draw(ctx, x, y, size, isDown) {
     if (isDown) {
-      ctx.strokeStyle = "black";
+      ctx.strokeStyle = "white";
       ctx.lineWidth = size;
       ctx.lineJoin = "round";
       ctx.lineCap = "round";
@@ -47,9 +46,6 @@ const Sketchpad = ({ canvasRef, id, width, height }) => {
     const ctx = canvasRef.current.getContext("2d");
     getMousePos(e);
     if (mouseDown == 1) {
-      console.log(canvasRef.current.getBoundingClientRect());
-      console.log(mouseX);
-      console.log(mouseY);
       draw(ctx, mouseX, mouseY, lineWidth, true);
     }
   }
@@ -80,10 +76,6 @@ const Sketchpad = ({ canvasRef, id, width, height }) => {
       }
     }
   }
-
-  React.useEffect(() => {
-    clearCanvas(canvasRef);
-  });
 
   return (
     <canvas

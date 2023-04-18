@@ -1,9 +1,9 @@
 import { Text } from "@chakra-ui/react";
 
-const Prediction = () => {
+const Prediction = ({ prediction }) => {
   return (
     <Text textAlign="center" fontSize="30px" as="b">
-      Prediction
+      Prediction: {prediction}
     </Text>
   );
 };

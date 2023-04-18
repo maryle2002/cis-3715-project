@@ -1,14 +1,18 @@
 import { Stack, Button } from "@chakra-ui/react";
-import clearCanvas from "../utils/clearCanvas";
 
-const SketchpadButtons = ({ canvasRef }) => {
-  function handleClearButtonClick() {
-    clearCanvas(canvasRef);
-  }
-
+const SketchpadButtons = ({
+  handlePredictButtonClick,
+  handleClearButtonClick,
+}) => {
   return (
     <Stack direction="row" spacing={4} align="center">
-      <Button colorScheme="gray" variant="solid" height="48px" width="100px">
+      <Button
+        colorScheme="gray"
+        variant="solid"
+        height="48px"
+        width="100px"
+        onClick={handlePredictButtonClick}
+      >
         Predict
       </Button>
       <Button
