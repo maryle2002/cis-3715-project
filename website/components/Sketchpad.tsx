@@ -1,4 +1,3 @@
-import clearCanvas from "../utils/clearCanvas";
 import React from "react";
 
 const Sketchpad = ({ canvasRef, id, width, height }) => {

@@ -1,11 +1,11 @@
-import { useRef, useState } from "react";
-import Sketchpad from "./Sketchpad";
-import Prediction from "./Prediction";
-import SketchpadButtons from "./SketchpadButtons";
 import { Text, VStack } from "@chakra-ui/react";
-import clearCanvas from "../utils/clearCanvas";
 import * as tf from "@tensorflow/tfjs";
-import React from "react";
+import React, { useRef, useState } from "react";
+import argMax from "../utils/argMax";
+import clearCanvas from "../utils/clearCanvas";
+import Prediction from "./Prediction";
+import Sketchpad from "./Sketchpad";
+import SketchpadButtons from "./SketchpadButtons";
 
 const UserInput = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -38,24 +38,6 @@ const UserInput = () => {
     predictions.array().then((array) => {
       setPrediction(argMax(array[0]));
     });
-  }
-
-  function argMax(array) {
-    if (array.length === 0) {
-      return -1;
-    }
-
-    let max = array[0];
-    let maxIndex = 0;
-
-    for (let i = 1; i < array.length; i++) {
-      if (array[i] > max) {
-        maxIndex = i;
-        max = array[i];
-      }
-    }
-
-    return maxIndex;
   }
 
   function handleClearButtonClick() {

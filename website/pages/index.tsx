@@ -1,8 +1,8 @@
+import { VStack } from "@chakra-ui/react";
 import { NextPage } from "next";
 import Head from "next/head";
-import UserInput from "../components/UserInput";
-import { Container, Spacer, VStack } from "@chakra-ui/react";
 import Header from "../components/Heading";
+import UserInput from "../components/UserInput";
 
 const Home: NextPage = () => {
   return (

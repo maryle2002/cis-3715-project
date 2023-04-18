@@ -1,4 +1,4 @@
-import { Stack, Button } from "@chakra-ui/react";
+import { Button, Stack } from "@chakra-ui/react";
 
 const SketchpadButtons = ({
   handlePredictButtonClick,
