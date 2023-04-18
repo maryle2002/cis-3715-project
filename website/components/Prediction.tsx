@@ -1,10 +1,16 @@
-import { Text } from "@chakra-ui/react";
+import { Text, VStack } from "@chakra-ui/react";
 
-const Prediction = ({ prediction }) => {
+const Prediction = ({ prediction, confidence }) => {
   return (
-    <Text textAlign="center" fontSize="30px" as="b">
-      Prediction: {prediction}
-    </Text>
+    <VStack>
+      <Text textAlign="center" fontSize="30px" as="b">
+        Prediction: {prediction}
+      </Text>
+      <Text>
+        {confidence &&
+          "(" + Math.round(confidence * 100) + "% confidence" + ")"}
+      </Text>
+    </VStack>
   );
 };
 export default Prediction;

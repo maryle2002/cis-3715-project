@@ -10,6 +10,7 @@ import SketchpadButtons from "./SketchpadButtons";
 const UserInput = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [prediction, setPrediction] = useState(null);
+  const [confidence, setConfidence] = useState(null);
   const [model, setModel] = useState<tf.LayersModel>(null);
 
   async function getModel() {
@@ -37,6 +38,7 @@ const UserInput = () => {
     const predictions = model.predict(tensor) as tf.Tensor<tf.Rank>;
     predictions.array().then((array) => {
       setPrediction(argMax(array[0]));
+      setConfidence(Math.max(...array[0]));
     });
   }
 
@@ -57,7 +59,7 @@ const UserInput = () => {
         Draw a digit on the board
       </Text>
 
-      <Prediction prediction={prediction} />
+      <Prediction prediction={prediction} confidence={confidence} />
       <SketchpadButtons
         handlePredictButtonClick={handlePredictButtonClick}
         handleClearButtonClick={handleClearButtonClick}
