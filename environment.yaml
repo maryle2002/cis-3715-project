@@ -7,7 +7,6 @@ channels:
 dependencies:
   - python=3.10
   - pip
-  - tensorflow-deps
   - ipykernel
 
   - pip:
@@ -18,3 +17,11 @@ dependencies:
       - pandas
       - numpy
       - scikit-learn
+
+      # Use pip install tensorflowjs --no-deps
+      - tensorflow_hub
+      - jax
+      - jaxlib
+      - etils
+      - chardet
+      - tensorflow_decision_forests
