@@ -7,7 +7,9 @@ const SketchpadButtons = ({
   return (
     <Stack direction="row" spacing={4} align="center">
       <Button
-        colorScheme="gray"
+        boxShadow="3px 3px gray"
+        fontSize={18}
+        bg="white"
         variant="solid"
         height="48px"
         width="100px"
@@ -16,7 +18,9 @@ const SketchpadButtons = ({
         Predict
       </Button>
       <Button
-        colorScheme="gray"
+        boxShadow="3px 3px gray"
+        fontSize={18}
+        bg="white"
         variant="solid"
         height="48px"
         width="100px"
