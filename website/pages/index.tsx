@@ -14,7 +14,7 @@ const Home: NextPage = () => {
       <VStack
         bgGradient="linear(orange.100 0%, pink.100 40%, purple.200 80%)"
         maxW="100%"
-        height='800'
+        height='900'
       >
         <Header />
         <UserInput />
