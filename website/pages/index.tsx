@@ -12,9 +12,9 @@ const Home: NextPage = () => {
       </Head>
 
       <VStack
-        bgGradient="linear(orange.100 0%, pink.100 40%, purple.200 70%)"
+        bgGradient="linear(orange.100 0%, pink.100 40%, purple.200 80%)"
         maxW="100%"
-        height={900}
+        height='600'
       >
         <Header />
         <UserInput />

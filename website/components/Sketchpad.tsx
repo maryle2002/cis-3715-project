@@ -88,7 +88,8 @@ const Sketchpad = ({ canvasRef, id, width, height }) => {
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       style={{
-        border: "solid 1px black",
+        borderRadius:"20px",
+        boxShadow: "0px 5px 10px 0px rgba(0, 0, 0, 0.5)"
       }}
     />
   );

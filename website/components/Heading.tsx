@@ -1,13 +1,12 @@
-import { Container, Heading } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
 
 const Header = () => {
   return (
-    <Container maxW={900} bg="blue.900" textAlign="center" padding="4">
-      <Heading fontSize="50px" color="blue.100" fontFamily="Chalkboard" as="b">
-        Hand Digit Recognizer Website
-      </Heading>
-      <br />
-    </Container>
+    <Box maxW={1000} marginTop='6' textAlign="center">
+      <Heading fontSize="53px" color="purple.900" fontFamily="Helvetica" as="b" textTransform={'uppercase'} textShadow='3px 3px pink'>
+        Hand Written Digit Recognizer
+      </Heading>     
+    </Box> 
   );
 };
 export default Header;

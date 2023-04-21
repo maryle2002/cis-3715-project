@@ -1,4 +1,4 @@
-import { Text, VStack } from "@chakra-ui/react";
+import { HStack, Stack, Text, VStack } from "@chakra-ui/react";
 import * as tf from "@tensorflow/tfjs";
 import React, { useRef, useState } from "react";
 import argMax from "../utils/argMax";
@@ -47,19 +47,28 @@ const UserInput = () => {
   }
 
   return (
-    <VStack>
-      <Sketchpad
-        canvasRef={canvasRef}
-        id="image-drawer"
-        width={256}
-        height={256}
-      />
+    <VStack spacing={10}>
+      <HStack spacing = '200'>
+        <Stack spacing={1.5} align={'center'}>
+          <Text  fontSize="30px" as="b">
+            Input 
+          </Text>
 
-      <Text textAlign="center" fontSize="40px" as="b">
-        Draw a digit on the board
-      </Text>
+          <Sketchpad
+          canvasRef={canvasRef}
+          id="image-drawer"
+          width={256}
+          height={256} 
+          />
 
-      <Prediction prediction={prediction} confidence={confidence} />
+          <Text>
+            Draw a digit 
+          </Text>
+        </Stack>
+
+        <Prediction prediction={prediction} confidence={confidence} />
+      </HStack>
+
       <SketchpadButtons
         handlePredictButtonClick={handlePredictButtonClick}
         handleClearButtonClick={handleClearButtonClick}
