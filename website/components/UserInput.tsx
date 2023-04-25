@@ -10,7 +10,7 @@ import SketchpadButtons from "./SketchpadButtons";
 const UserInput = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [prediction, setPrediction] = useState(null);
-  const [confidence, setConfidence] = useState(null);
+  const [confidence, setConfidence] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
   const [model, setModel] = useState<tf.LayersModel>(null);
 
   async function getModel() {
@@ -37,12 +37,14 @@ const UserInput = () => {
       .div(255.0);
     const predictions = model.predict(tensor) as tf.Tensor<tf.Rank>;
     predictions.array().then((array) => {
-      setPrediction(argMax(array[0]));
-      setConfidence(Math.max(...array[0]));
+      const confidenceLevels: number[] = array[0];
+      setPrediction(argMax(confidenceLevels));
+      setConfidence(confidenceLevels);
     });
   }
 
   function handleClearButtonClick() {
+    setConfidence([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
     clearCanvas(canvasRef);
   }
 
@@ -59,18 +61,16 @@ const UserInput = () => {
             id="image-drawer"
             width={256}
             height={256}
+            onMouseUp={handlePredictButtonClick}
           />
 
           <Text>Draw a digit</Text>
         </Stack>
 
-        <Prediction prediction={prediction} confidence={confidence} />
+        <Prediction confidence={confidence} />
       </HStack>
 
-      <SketchpadButtons
-        handlePredictButtonClick={handlePredictButtonClick}
-        handleClearButtonClick={handleClearButtonClick}
-      />
+      <SketchpadButtons handleClearButtonClick={handleClearButtonClick} />
     </VStack>
   );
 };

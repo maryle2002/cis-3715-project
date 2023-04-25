@@ -1,30 +1,30 @@
-import { Center, Text, VStack } from "@chakra-ui/react";
+import { Text, VStack } from "@chakra-ui/react";
 
-const Prediction = ({ prediction, confidence }) => {
+interface PredictionProps {
+  confidence: number[];
+}
+
+const Prediction = ({ confidence }: PredictionProps) => {
   return (
     <VStack spacing={1.5} align={"center"}>
       <Text fontSize="30px" as="b">
         Prediction
       </Text>
 
-      <Center
-        h="256px"
-        w="256px"
-        boxShadow="0px 5px 10px 0px rgba(0, 0, 0, 0.5)"
-        borderRadius="20px"
-        bg="orange.50"
-        color="black"
-        textAlign="center"
-        as="b"
-        fontSize={165}
-      >
-        {prediction}
-      </Center>
-
-      <Text>
+      <>
         {confidence &&
-          "(" + Math.round(confidence * 100) + "% confidence" + ")"}
-      </Text>
+          confidence.map((item, index) => {
+            const isMax = Math.max(...confidence) == item;
+            return (
+              <Text
+                fontWeight={isMax ? "bold" : "medium"}
+                fontSize={isMax ? "bold" : "medium"}
+              >
+                {index}: {`${Math.round(item * 100)}%`}
+              </Text>
+            );
+          })}
+      </>
     </VStack>
   );
 };

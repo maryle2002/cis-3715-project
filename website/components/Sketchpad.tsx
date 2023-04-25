@@ -1,6 +1,6 @@
 import React from "react";
 
-const Sketchpad = ({ canvasRef, id, width, height }) => {
+const Sketchpad = ({ canvasRef, id, width, height, onMouseUp }) => {
   const lineWidth = 20;
 
   let lastX = 0;
@@ -39,6 +39,8 @@ const Sketchpad = ({ canvasRef, id, width, height }) => {
 
   function handleMouseUp() {
     mouseDown = 0;
+
+    onMouseUp();
   }
 
   function handleMouseMove(e) {
