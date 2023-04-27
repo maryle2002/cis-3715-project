@@ -6,7 +6,7 @@ CIS 3715 - Principles of Data Science
 
 April 5, 2023
 
-Progress Report I
+# Progress Report I
 
 **What has been done**
 
