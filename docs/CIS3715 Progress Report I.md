@@ -29,7 +29,7 @@ Figure 1: (a) First 10 images from the train set. (b) First 10 images from the t
 Figure 2: Digit label distribution of the train set.
 
 [<img src="img/train_distribution.png" width="300">](img/train_distribution.png)
-[<img src="img/train_distribution.png" width="300">](img/test_distribution.png)
+[<img src="img/test_distribution.png" width="300">](img/test_distribution.png)
 
 Figure 3: (a) Pixel value distribution of the train set. (b) Pixel value distribution of the test set.
 
