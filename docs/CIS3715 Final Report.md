@@ -122,7 +122,7 @@ However, there are certain steps that are crucial to obtaining high accuracy.
 This includes min-max normalization of the feature data, increasing the size of the layers, increasing the number of epochs, adding batch normalization layers, and creating an ensemble of multiple CNNs.
 These steps allowed us to achieve a 99.38% in the Kaggle competition, which as of April 28, 2023, puts us at 233 out of 1,593 teams which is within the 15th percentile.
 Our model's predictions showed that many of the digits that were not classified correctly were indeed written in a way that would be hard for even a human to distinguish, indicating that it would be very hard to get 100% accuracy on the data set.
-Because the MNIST data set is publicly available, there are competitors who were able to obtain 100% accuracy, however the best legitimate methods appear to have a best accuracy of \<sub>99.8%.
+Because the MNIST data set is publicly available, there are competitors who were able to obtain 100% accuracy, however the best legitimate methods appear to have a best accuracy of ~99.8%.
 
 **Acknowledgements**
 
